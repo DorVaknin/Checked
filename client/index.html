@@ -13,8 +13,8 @@
 		var qrcode, num;
 		function changeCode() {
 			qrcode.clear();
-			console.log("The origin here is " + window.location.origin);
-			qrcode.makeCode(window.location.origin + "?num=" + num);
+			console.log(window.location.origin + "/checked?num=" + num);
+			qrcode.makeCode(window.location.origin + "/checked?num=" + num);
 			num++;
 		}
 
@@ -60,10 +60,7 @@
 	</br>
 	</br>
 
-	<form action="/checked" onsubmit="qrStart()" method="GET">
-		&nbsp
-		<input type="submit" name="start" value="Start">
-		</br>
+	<form action="/checkedStart" onsubmit="qrStart()" method="GET">
 	</form>
 	<!-- <!update it to stop in the other page too> -->
 	&nbsp

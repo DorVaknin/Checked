@@ -9,12 +9,16 @@ app.set('port', (process.env.PORT || 8016));
 
 app.use(express.static(path.join(__dirname, '../client')));
 
-app.get('/checked', (request, res) => {
-    let parsedUrl = url.parse(request.url, true);
-    let query = parsedUrl.query;//parsing the url and putting the query arguments into the array
-    if (query.start == "Start") {//if the lecturer sends request to begin running the QR code in the class
-        timerId = setInterval(startQR, 2000);//raising the QR code counter, every 2 seconds
-    }
+app.get('/checkedStart', (req, res) => {
+    timerId = setInterval(startQR, 2000);
+})
+
+app.get('/checked', (req, res) => {
+    // let parsedUrl = url.parse(req.url, true);
+    // let query = parsedUrl.query;//parsing the url and putting the query arguments into the array
+    // if (query.start == "Start") {//if the lecturer sends request to begin running the QR code in the class
+    //     timerId = setInterval(startQR, 2000);//raising the QR code counter, every 2 seconds
+    // }
 
     let isValid = checkIfNumIsValid(query.num);
     let imageUrl = isValid ? "checkedPic.png" : "unCheckedPic.png";
