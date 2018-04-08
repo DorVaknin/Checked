@@ -23,7 +23,7 @@
 				width: 300,
 				height: 300
 			});
-			 num = 1;
+			num = 1;
 			changeCode();
 			timerId = window.setInterval(changeCode, 2000);
 
@@ -50,7 +50,6 @@
 </head>
 
 <body>
-
 	<div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
 	</br>
 	</br>
@@ -68,14 +67,10 @@
 		&nbsp
 		<input type="submit" value="Start">
 		</br>
-
-
 	</form> -->
 
-	<input type="button" id="startButton" value="Start" onclick="startChecked()">
+	<input type="button" id="startButton" value="Start" onclick="startChecked()" />
 	<!-- <!update it to stop in the other page too> -->
 	&nbsp
-	<input type="button" id="stopButton" value="Stop" onclick="qrStop()">
-	</button>
-
+	<input type="button" id="stopButton" value="Stop" onclick="qrStop()" />
 </body>
