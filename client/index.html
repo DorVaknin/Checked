@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+
+<head>
+	<title>QR-Code generator</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="qrcode.js"></script>
+
+	<script type="text/javascript">
+		var timerId = 0;
+		var qrcode, num;
+		function changeCode() {
+			qrcode.clear();
+			console.log("The origin here is " + window.location.origin);
+			qrcode.makeCode(window.location.origin + "?num=" + num);
+			num++;
+		}
+
+		function qrStart() {
+			if (timerId != 0) return;
+			qrcode = new QRCode(document.getElementById("qrcode"), {
+				width: 300,
+				height: 300
+			});
+			 num = 1;
+			changeCode();
+			timerId = window.setInterval(changeCode, 2000);
+
+			$("#text").
+				on("blur", function () {
+					changeCode();
+				}).
+				on("keydown", function (e) {
+					if (e.keyCode == 13) {
+						changeCode();
+					}
+				});
+		}
+		function qrStop() {
+			window.clearInterval(timerId);
+		}
+
+	</script>
+</head>
+
+<body>
+
+	<div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+
+	<form action="/checked" onsubmit="qrStart()" method="GET">
+		&nbsp
+		<input type="submit" name="start" value="Start">
+		</br>
+	</form>
+	<!-- <!update it to stop in the other page too> -->
+	&nbsp
+	<input type="button" id="stopButton" name="stop" value="Stop" onclick="qrStop()">
+	</button>
+
+</body>

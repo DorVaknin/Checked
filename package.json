@@ -1,0 +1,14 @@
+{
+  "name": "checked",
+  "version": "1.0.0",
+  "description": "Checked app",
+  "main": "main.js",
+  "scripts": {
+    "start" : "node server/main.js"
+  },
+  "author": "Dor Vaknin & Niv Schnaiderman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
