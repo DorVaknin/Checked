@@ -16,7 +16,10 @@ app.get('/checked', (request, res) => {
         timerId = setInterval(startQR, 2000);//raising the QR code counter, every 2 seconds
     }
 
-    isValid(query.num);
+    let isValid = checkIfNumIsValid(query.num);
+    let imageUrl = isValid ? "checkedPic.png" : "unCheckedPic.png";
+
+    res.redirect(imageUrl);
 })
 
 app.listen(app.get('port'), () => {
@@ -28,14 +31,14 @@ function startQR() {
     qrCounter++;
 }
 
-function isValid(num) {
-    //console.log("in isValid");
-    if (num > qrCounter - 5) {//if the QR code does the current QRcode + 3 QR codes spare
+function checkIfNumIsValid(num) {
+    let isValid = num > qrCounter - 5;
+
+    if (isValid) {//if the QR code does the current QRcode + 3 QR codes spare
         console.log("checked in second: " + qrCounter);
-        // we didnt success to give answer to the client
-        //res.write('Your checked!');
     } else {
-        console.log("unValid in second: " + qrCounter);
-        //res.write('Incorrect, Your not checked!!');
+        console.log("inValid in second: " + qrCounter);
     }
+
+    return isValid;
 }
