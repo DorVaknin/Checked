@@ -14,8 +14,8 @@ app.get('/checkedStart', (req, res) => {
 })
 
 app.get('/checked', (req, res) => {
-    // let parsedUrl = url.parse(req.url, true);
-    // let query = parsedUrl.query;//parsing the url and putting the query arguments into the array
+     let parsedUrl = url.parse(req.url, true);
+     let query = parsedUrl.query;//parsing the url and putting the query arguments into the array
     // if (query.start == "Start") {//if the lecturer sends request to begin running the QR code in the class
     //     timerId = setInterval(startQR, 2000);//raising the QR code counter, every 2 seconds
     // }
