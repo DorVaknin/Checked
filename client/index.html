@@ -7,15 +7,17 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 	<script type="text/javascript" src="jquery.min.js"></script>
 	<script type="text/javascript" src="qrcode.js"></script>
-	<script type="text/javascript" src="start timer.js">	</script>
+	<script type="text/javascript" src="start timer.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 
 <body>
-	<center>
+	
 		</br>
-		<img src="logoSmall.jpg" alt="logo" style="width:170px;height:100px";>
+		<img src="logoSmall.jpg" class="img" alt="logo" style="width:170px;height:100px";>
 		</br>
-		<div id="qrcode" align="center" style="width:100px; height:100px; margin-top:15px" ;></div>
+		<div id="qrcode" class="qrCode" ></div>
 		</br>
 		</br>
 		</br>
@@ -33,7 +35,7 @@
 			<input type="submit" value="Start">
 			</br>
 		</form> -->
-
+	<center>
 		<input type="button" id="startButton" value="Start" onclick="startChecked()" />
 		<!-- <!update it to stop in the other page too> -->
 		&nbsp

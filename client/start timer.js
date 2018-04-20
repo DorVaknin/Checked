@@ -12,7 +12,8 @@ function qrStart() {
 	if (timerId != 0) return;
 	qrcode = new QRCode(document.getElementById("qrcode"), {
 		width: 300,
-		height: 300
+		height: 300,
+		
 	});
 	num = 1;
 	changeCode();

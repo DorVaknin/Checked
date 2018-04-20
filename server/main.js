@@ -38,7 +38,7 @@ function startQR() {
 function checkIfNumIsValid(num) {
     let isValid = num > qrCounter - 5;
 
-    if (isValid) {//if the QR code does the current QRcode + 3 QR codes spare
+    if (isValid) {//if the QR code does the current QRcode + 5 QR codes spare
         console.log("checked in second: " + qrCounter);
     } else {
         console.log("inValid in second: " + qrCounter);
